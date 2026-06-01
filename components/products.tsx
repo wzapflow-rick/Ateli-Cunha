@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/reveal";
+import { whatsappLink } from "@/lib/whatsapp";
 
 const products = [
   {
@@ -104,7 +105,11 @@ export function Products() {
             Não encontrou o que procura?
           </p>
           <a
-            href="#contato"
+            href={whatsappLink(
+              "Olá! Não encontrei o que procuro no site. Vocês fazem outros produtos personalizados?"
+            )}
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/20"
           >
             Consulte outros produtos

@@ -1,7 +1,7 @@
-import Link from "next/link";
 import Image from "next/image";
 import { Heart, Gift, Clock } from "lucide-react";
 import { Reveal } from "@/components/reveal";
+import { whatsappLink } from "@/lib/whatsapp";
 
 const highlights = [
   {
@@ -61,13 +61,17 @@ export function Campaign() {
               ))}
             </div>
 
-            <Link
-              href="#contato"
+            <a
+              href={whatsappLink(
+                "Olá! Quero montar um Kit do Amor para o Dia dos Namorados. Pode me ajudar com as opções?"
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-7 py-3.5 rounded-full font-medium hover:scale-105 transition-transform duration-300 shadow-lg shadow-black/10"
             >
               <Heart className="w-4 h-4 fill-current" />
               Montar meu kit
-            </Link>
+            </a>
           </Reveal>
 
           <Reveal delay={150} className="order-1 lg:order-2">

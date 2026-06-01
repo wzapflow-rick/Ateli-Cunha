@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Send, Phone, Mail, MapPin } from "lucide-react";
+import { whatsappLink, WHATSAPP_DISPLAY } from "@/lib/whatsapp";
 
 function Instagram({ className }: { className?: string }) {
   return (
@@ -69,7 +70,9 @@ export function Contact() {
 
             <div className="space-y-4 mb-8">
               <a
-                href="tel:+5511999999999"
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:shadow-md hover:border-accent/40 transition-all"
               >
                 <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
@@ -80,7 +83,7 @@ export function Contact() {
                     Telefone / WhatsApp
                   </span>
                   <span className="font-medium text-foreground">
-                    (11) 99999-9999
+                    {WHATSAPP_DISPLAY}
                   </span>
                 </div>
               </a>

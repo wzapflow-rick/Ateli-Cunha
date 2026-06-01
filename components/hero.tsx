@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Heart, Sparkles } from "lucide-react";
+import { whatsappLink } from "@/lib/whatsapp";
 
 export function Hero() {
   return (
@@ -59,13 +60,17 @@ export function Hero() {
               especiais criados com todo carinho pelo Ateliê Cunha.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="#contato"
+              <a
+                href={whatsappLink(
+                  "Olá! Vi a campanha de Dia dos Namorados no site e quero presentear alguém especial. Pode me ajudar?"
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 rounded-full font-medium hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/25"
               >
                 Quero presentear
                 <ArrowRight className="w-4 h-4" />
-              </Link>
+              </a>
               <Link
                 href="#produtos"
                 className="inline-flex items-center justify-center gap-2 bg-card text-foreground px-6 py-3.5 rounded-full font-medium hover:bg-secondary transition-colors border border-border"

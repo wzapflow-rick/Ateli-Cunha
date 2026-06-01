@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { whatsappLink, WHATSAPP_DISPLAY } from "@/lib/whatsapp";
 
 function Instagram({ className }: { className?: string }) {
   return (
@@ -89,9 +90,16 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Contato</h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-sm text-background/70">
-                <Phone className="w-4 h-4" />
-                <span>(11) 99999-9999</span>
+              <li>
+                <a
+                  href={whatsappLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-background/70 hover:text-background transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  <span>{WHATSAPP_DISPLAY}</span>
+                </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-background/70">
                 <Mail className="w-4 h-4" />

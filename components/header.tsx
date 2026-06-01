@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, Heart } from "lucide-react";
+import { whatsappLink } from "@/lib/whatsapp";
 
 const navLinks = [
   { href: "#inicio", label: "Início" },
@@ -39,12 +40,14 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="#contato"
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors"
             >
               Solicitar Orçamento
-            </Link>
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -75,13 +78,15 @@ export function Header() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="#contato"
+              <a
+                href={whatsappLink()}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
                 className="bg-primary text-primary-foreground px-5 py-3 rounded-full text-base font-medium hover:bg-primary/90 transition-colors text-center mt-2"
               >
                 Solicitar Orçamento
-              </Link>
+              </a>
             </div>
           </nav>
         )}
