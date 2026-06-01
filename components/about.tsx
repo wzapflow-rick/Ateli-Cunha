@@ -1,4 +1,5 @@
 import { Award, Clock, Heart, Users } from "lucide-react";
+import { Reveal } from "@/components/reveal";
 
 const features = [
   {
@@ -27,17 +28,24 @@ const features = [
   },
 ];
 
+const stats = [
+  { value: "500+", label: "Clientes Satisfeitos" },
+  { value: "1000+", label: "Produtos Entregues" },
+  { value: "4+", label: "Anos de Experiência" },
+  { value: "100%", label: "Dedicação" },
+];
+
 export function About() {
   return (
-    <section id="sobre" className="py-16 sm:py-24">
+    <section id="sobre" className="py-16 sm:py-24 bg-secondary">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
-          <div>
-            <span className="inline-block text-primary font-medium text-sm mb-4">
+          <Reveal>
+            <span className="inline-block text-accent font-medium text-sm mb-4 uppercase tracking-wider">
               Sobre Nós
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance mb-6">
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance mb-6">
               Dedicados à criatividade e personalização
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6 text-pretty">
@@ -50,17 +58,18 @@ export function About() {
               Nossa missão é transformar suas ideias em realidade, oferecendo
               qualidade, criatividade e um atendimento que faz a diferença.
             </p>
-          </div>
+          </Reveal>
 
           {/* Features Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {features.map((feature) => (
-              <div
+            {features.map((feature, index) => (
+              <Reveal
                 key={feature.title}
-                className="bg-secondary rounded-2xl p-6 hover:bg-muted transition-colors"
+                delay={(index % 2) * 120}
+                className="bg-card rounded-2xl p-6 border border-border hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4">
-                  <feature.icon className="w-6 h-6 text-primary" />
+                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-4">
+                  <feature.icon className="w-6 h-6 text-accent" />
                 </div>
                 <h3 className="font-semibold text-foreground mb-2">
                   {feature.title}
@@ -68,45 +77,30 @@ export function About() {
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {feature.description}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-16 sm:mt-20">
-          <div className="text-center p-6 bg-secondary rounded-2xl">
-            <span className="text-3xl sm:text-4xl font-bold text-primary">
-              500+
-            </span>
-            <p className="text-sm text-muted-foreground mt-1">
-              Clientes Satisfeitos
-            </p>
-          </div>
-          <div className="text-center p-6 bg-secondary rounded-2xl">
-            <span className="text-3xl sm:text-4xl font-bold text-primary">
-              1000+
-            </span>
-            <p className="text-sm text-muted-foreground mt-1">
-              Produtos Entregues
-            </p>
-          </div>
-          <div className="text-center p-6 bg-secondary rounded-2xl">
-            <span className="text-3xl sm:text-4xl font-bold text-primary">
-              4+
-            </span>
-            <p className="text-sm text-muted-foreground mt-1">
-              Anos de Experiência
-            </p>
-          </div>
-          <div className="text-center p-6 bg-secondary rounded-2xl">
-            <span className="text-3xl sm:text-4xl font-bold text-primary">
-              100%
-            </span>
-            <p className="text-sm text-muted-foreground mt-1">
-              Dedicação
-            </p>
-          </div>
+          {stats.map((stat, index) => (
+            <Reveal
+              key={stat.label}
+              delay={index * 100}
+              className="text-center p-6 bg-card rounded-2xl border border-border"
+            >
+              <span
+                className="font-serif text-3xl sm:text-4xl font-bold bg-clip-text text-transparent"
+                style={{
+                  backgroundImage: "linear-gradient(90deg, #9d2b8f, #ec4899)",
+                }}
+              >
+                {stat.value}
+              </span>
+              <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

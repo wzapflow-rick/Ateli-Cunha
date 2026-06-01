@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Heart } from "lucide-react";
 
 const navLinks = [
   { href: "#inicio", label: "Início" },
+  { href: "#campanha", label: "Dia dos Namorados" },
   { href: "#produtos", label: "Produtos" },
   { href: "#sobre", label: "Sobre" },
   { href: "#contato", label: "Contato" },
@@ -19,7 +20,10 @@ export function Header() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl sm:text-2xl font-semibold text-foreground">
+            <span className="flex items-center justify-center w-9 h-9 rounded-full bg-accent/15">
+              <Heart className="w-5 h-5 text-accent fill-accent" />
+            </span>
+            <span className="font-serif text-xl sm:text-2xl font-bold text-foreground">
               Ateliê Cunha
             </span>
           </Link>

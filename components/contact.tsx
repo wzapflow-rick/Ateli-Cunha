@@ -45,13 +45,13 @@ export function Contact() {
   };
 
   return (
-    <section id="contato" className="py-16 sm:py-24 bg-secondary">
+    <section id="contato" className="py-16 sm:py-24 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 sm:mb-16">
-          <span className="inline-block text-primary font-medium text-sm mb-4">
+          <span className="inline-block text-accent font-medium text-sm mb-4 uppercase tracking-wider">
             Contato
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance mb-4">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance mb-4">
             Vamos conversar?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
@@ -70,10 +70,10 @@ export function Contact() {
             <div className="space-y-4 mb-8">
               <a
                 href="tel:+5511999999999"
-                className="flex items-center gap-4 p-4 bg-card rounded-xl hover:shadow-md transition-shadow"
+                className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:shadow-md hover:border-accent/40 transition-all"
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <Phone className="w-5 h-5 text-primary" />
+                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                  <Phone className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <span className="text-sm text-muted-foreground block">
@@ -87,10 +87,10 @@ export function Contact() {
 
               <a
                 href="mailto:contato@ateliecunha.com.br"
-                className="flex items-center gap-4 p-4 bg-card rounded-xl hover:shadow-md transition-shadow"
+                className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:shadow-md hover:border-accent/40 transition-all"
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-primary" />
+                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                  <Mail className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <span className="text-sm text-muted-foreground block">
@@ -106,10 +106,10 @@ export function Contact() {
                 href="https://instagram.com/ateliecunha"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 bg-card rounded-xl hover:shadow-md transition-shadow"
+                className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:shadow-md hover:border-accent/40 transition-all"
               >
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <Instagram className="w-5 h-5 text-primary" />
+                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                  <Instagram className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <span className="text-sm text-muted-foreground block">
@@ -121,9 +121,9 @@ export function Contact() {
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-4 bg-card rounded-xl">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
-                  <MapPin className="w-5 h-5 text-primary" />
+              <div className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border">
+                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
+                  <MapPin className="w-5 h-5 text-accent" />
                 </div>
                 <div>
                   <span className="text-sm text-muted-foreground block">
@@ -139,7 +139,7 @@ export function Contact() {
 
           {/* Contact Form */}
           <div>
-            <div className="bg-card rounded-2xl p-6 sm:p-8">
+            <div className="bg-card rounded-2xl p-6 sm:p-8 border border-border shadow-sm">
               {submitted ? (
                 <div className="text-center py-8">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
