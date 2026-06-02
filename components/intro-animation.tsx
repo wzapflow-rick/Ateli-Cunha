@@ -9,14 +9,10 @@ export function IntroAnimation() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Respect reduced-motion preference: never show the animation.
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (prefersReduced) return;
-
-    // Plays on every page load / reload.
+    // Plays on every page load / reload, on every device.
+    // (We intentionally do not gate on prefers-reduced-motion, because some
+    // Android battery/data-saver modes force that flag and would hide the
+    // intro entirely.)
     setVisible(true);
 
     // Lock scroll while the intro plays.
