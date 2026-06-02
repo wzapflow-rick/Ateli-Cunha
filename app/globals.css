@@ -16,6 +16,8 @@
   --border: #f3d9ea;
   --card: #ffffff;
   --card-foreground: #2d1b33;
+  --whatsapp: #25d366;
+  --whatsapp-dark: #1ebe5d;
   --radius: 1rem;
 }
 
@@ -255,6 +257,44 @@ body {
 .btn-gradient:hover {
   background-position: right center;
   box-shadow: 0 10px 30px -6px rgba(194, 24, 143, 0.5);
+}
+
+/* WhatsApp button (functional brand green) */
+.btn-whatsapp {
+  background-color: var(--whatsapp);
+  color: #ffffff;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+.btn-whatsapp:hover {
+  background-color: var(--whatsapp-dark);
+  box-shadow: 0 12px 30px -8px rgba(37, 211, 102, 0.6);
+}
+
+/* Soft brand gradient surfaces */
+.gradient-soft {
+  background-image: linear-gradient(
+    135deg,
+    #ffe3f3 0%,
+    #fff8fb 45%,
+    #ffe9e1 100%
+  );
+}
+
+.gradient-strong {
+  background-image: linear-gradient(135deg, #c2188f 0%, #ff7a59 100%);
+}
+
+/* Premium card hover lift */
+.card-lift {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -18px rgba(194, 24, 143, 0.28);
 }
 
 html {

@@ -25,7 +25,7 @@ export function Campaign() {
   return (
     <section
       id="campanha"
-      className="py-16 sm:py-24 bg-primary text-primary-foreground relative overflow-hidden"
+      className="py-16 sm:py-24 gradient-strong text-primary-foreground relative overflow-hidden"
     >
       <Heart
         className="absolute -top-6 -right-6 w-40 h-40 text-primary-foreground/5 fill-primary-foreground/5 rotate-12"
@@ -36,15 +36,15 @@ export function Campaign() {
           <Reveal className="order-2 lg:order-1">
             <span className="inline-flex items-center gap-2 bg-primary-foreground/15 px-4 py-2 rounded-full font-medium text-sm mb-6">
               <Heart className="w-4 h-4 fill-current" />
-              Edição Dia dos Namorados
+              Coleção Especial
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-balance mb-6 leading-tight">
-              Kits do Amor para celebrar momentos únicos
+              Coleção Especial Dia dos Namorados
             </h2>
-            <p className="text-lg text-primary-foreground/80 leading-relaxed mb-8 text-pretty">
-              Monte o presente perfeito combinando canecas, chaveiros, garrafas
-              e agendas com personalização exclusiva. Uma surpresa que emociona
-              e fica na memória para sempre.
+            <p className="text-lg text-primary-foreground/85 leading-relaxed mb-8 text-pretty">
+              Presentes personalizados criados para tornar este Dia dos
+              Namorados ainda mais inesquecível. Canecas, kits e lembranças que
+              emocionam e ficam na memória para sempre.
             </p>
 
             <div className="grid sm:grid-cols-3 gap-5 mb-8">
@@ -67,10 +67,10 @@ export function Campaign() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-card text-primary px-7 py-3.5 rounded-full font-medium hover:scale-105 transition-transform duration-300 shadow-lg shadow-black/10"
+              className="inline-flex items-center justify-center gap-2 bg-card text-primary px-7 py-3.5 rounded-full font-semibold hover:scale-105 transition-transform duration-300 shadow-lg shadow-black/10"
             >
               <Heart className="w-4 h-4 fill-current" />
-              Montar meu kit
+              Ver Coleção
             </a>
           </Reveal>
 

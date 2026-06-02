@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { whatsappLink } from "@/lib/whatsapp";
+import { WhatsAppIcon } from "@/components/icons";
 import {
   CATEGORIES,
   useCategoryFilter,
@@ -90,14 +91,14 @@ export function Products() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <Reveal className="text-center mb-10 sm:mb-12">
           <span className="inline-block text-accent font-medium text-sm mb-4 uppercase tracking-wider">
-            Nossos Produtos
+            Mais Vendidos
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance mb-4">
-            O que personalizamos
+            Os Favoritos dos Clientes
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Conheça nossa linha de produtos personalizáveis. Cada item é
-            produzido com atenção aos detalhes e qualidade garantida.
+            Os personalizados mais pedidos do Ateliê Cunha. Escolha o seu e faça
+            o pedido em segundos pelo WhatsApp.
           </p>
         </Reveal>
 
@@ -128,7 +129,7 @@ export function Products() {
               as="article"
               key={product.id}
               delay={(index % 3) * 120}
-              className="bg-card rounded-2xl overflow-hidden border border-border hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1.5 transition-all duration-300 group"
+              className="bg-card rounded-2xl overflow-hidden border border-border card-lift group flex flex-col"
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-secondary">
                 <Image
@@ -139,16 +140,27 @@ export function Products() {
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col flex-1">
                 <span className="text-xs font-medium text-accent uppercase tracking-wider">
                   {product.category}
                 </span>
                 <h3 className="text-lg font-semibold text-foreground mt-1 mb-2">
                   {product.name}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                   {product.description}
                 </p>
+                <a
+                  href={whatsappLink(
+                    `Olá! Tenho interesse no produto "${product.name}". Pode me passar mais informações e valores?`
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-whatsapp mt-auto inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl font-semibold text-sm"
+                >
+                  <WhatsAppIcon className="w-4 h-4" />
+                  Pedir pelo WhatsApp
+                </a>
               </div>
             </Reveal>
           ))}

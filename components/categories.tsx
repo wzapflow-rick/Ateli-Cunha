@@ -34,14 +34,15 @@ export function Categories() {
   };
 
   return (
-    <section id="categorias" className="py-16 sm:py-24 bg-secondary/40">
+    <section id="categorias" className="py-16 sm:py-24 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <Reveal className="flex items-center gap-4 mb-10 sm:mb-14">
-          <span className="hidden sm:block h-px flex-1 bg-border" />
-          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground text-center text-balance">
+        <Reveal className="text-center mb-10 sm:mb-14">
+          <span className="inline-block text-accent font-medium text-sm mb-3 uppercase tracking-wider">
+            Explore
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance">
             Escolha por Categoria
           </h2>
-          <span className="hidden sm:block h-px flex-1 bg-border" />
         </Reveal>
 
         <div className="relative">
@@ -49,14 +50,14 @@ export function Categories() {
             type="button"
             onClick={() => scrollByAmount("left")}
             aria-label="Ver categorias anteriores"
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 -ml-2 sm:-ml-4 hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-card border border-border text-foreground shadow-md hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 -ml-2 sm:-ml-4 hidden sm:flex items-center justify-center w-11 h-11 rounded-full bg-card border border-border text-foreground shadow-md hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
 
           <div
             ref={trackRef}
-            className="flex gap-6 sm:gap-8 overflow-x-auto scroll-smooth px-1 sm:px-2 py-4 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth px-1 py-4 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           >
             {categories.map((category) => {
               const isActive = selected === category.name;
@@ -66,42 +67,34 @@ export function Categories() {
                   type="button"
                   onClick={() => selectAndScroll(category.name)}
                   aria-pressed={isActive}
-                  className="group flex-shrink-0 snap-center flex flex-col items-center gap-4 w-32 sm:w-40"
+                  className={`group relative flex-shrink-0 snap-center w-44 sm:w-52 rounded-3xl overflow-hidden card-lift text-left border ${
+                    isActive
+                      ? "border-accent ring-2 ring-accent"
+                      : "border-border"
+                  }`}
                 >
-                  <div className="relative">
-                    <span
-                      aria-hidden="true"
-                      className={`absolute -inset-1.5 rounded-full bg-gradient-to-br from-accent via-primary to-gold blur-[2px] transition-opacity ${
-                        isActive
-                          ? "opacity-100 animate-glow-pulse"
-                          : "opacity-70 group-hover:opacity-100 group-hover:animate-glow-pulse"
-                      }`}
+                  <div className="relative aspect-[4/5] overflow-hidden bg-secondary">
+                    <Image
+                      src={category.image || "/placeholder.svg"}
+                      alt={`Categoria ${category.name}`}
+                      fill
+                      sizes="(max-width: 640px) 176px, 208px"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div
-                      className={`relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden bg-card ring-2 transition-all duration-300 ${
-                        isActive
-                          ? "ring-accent scale-105"
-                          : "ring-card group-hover:scale-105"
-                      }`}
-                    >
-                      <Image
-                        src={category.image || "/placeholder.svg"}
-                        alt={`Categoria ${category.name}`}
-                        fill
-                        sizes="(max-width: 640px) 112px, 144px"
-                        className="object-cover"
-                      />
-                    </div>
+                    <span
+                      className="absolute inset-0 bg-gradient-to-t from-foreground/75 via-foreground/10 to-transparent"
+                      aria-hidden="true"
+                    />
+                    <span className="absolute bottom-0 left-0 right-0 p-4">
+                      <span className="block font-semibold text-base text-white text-balance leading-tight">
+                        {category.name}
+                      </span>
+                      <span className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-white/80 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                        Ver produtos
+                        <ChevronRight className="w-3.5 h-3.5" />
+                      </span>
+                    </span>
                   </div>
-                  <span
-                    className={`text-sm sm:text-base font-semibold text-center transition-colors text-balance ${
-                      isActive
-                        ? "text-accent"
-                        : "text-foreground group-hover:text-accent"
-                    }`}
-                  >
-                    {category.name}
-                  </span>
                 </button>
               );
             })}
@@ -111,7 +104,7 @@ export function Categories() {
             type="button"
             onClick={() => scrollByAmount("right")}
             aria-label="Ver mais categorias"
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 -mr-2 sm:-mr-4 hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-card border border-border text-foreground shadow-md hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 -mr-2 sm:-mr-4 hidden sm:flex items-center justify-center w-11 h-11 rounded-full bg-card border border-border text-foreground shadow-md hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
           >
             <ChevronRight className="w-5 h-5" />
           </button>

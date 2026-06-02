@@ -1,151 +1,135 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Heart, Sparkles } from "lucide-react";
+import { ArrowRight, Heart, Sparkles, Gift, Zap } from "lucide-react";
 import { whatsappLink } from "@/lib/whatsapp";
+import { WhatsAppIcon } from "@/components/icons";
+
+const trustBadges = [
+  { icon: Heart, label: "Personalização Exclusiva" },
+  { icon: Gift, label: "Feito para Presentear" },
+  { icon: Zap, label: "Atendimento Rápido" },
+];
 
 export function Hero() {
   return (
     <section id="inicio" className="relative overflow-hidden pt-16 sm:pt-20">
-      {/* Decorative gradient background */}
+      <div className="absolute inset-0 -z-10 gradient-soft" aria-hidden="true" />
       <div
-        className="absolute inset-0 -z-10"
-        style={{
-          background:
-            "linear-gradient(135deg, #ffe3f3 0%, #fff8fb 40%, #ffe9e1 100%)",
-        }}
-        aria-hidden="true"
-      />
-      {/* Glow blobs (pink + yellow) */}
-      <div
-        className="absolute -top-20 -left-24 w-80 h-80 rounded-full bg-accent/30 blur-3xl -z-10 animate-glow-pulse"
+        className="absolute -top-24 -left-24 w-80 h-80 rounded-full bg-accent/20 blur-3xl -z-10 animate-glow-pulse"
         aria-hidden="true"
       />
       <div
-        className="absolute top-10 right-[-6rem] w-96 h-96 rounded-full bg-gold/30 blur-3xl -z-10 animate-glow-pulse"
+        className="absolute top-10 right-[-6rem] w-96 h-96 rounded-full bg-gold/20 blur-3xl -z-10 animate-glow-pulse"
         style={{ animationDelay: "1.5s" }}
         aria-hidden="true"
       />
 
-      {/* Floating decorative hearts */}
-      <Heart
-        className="absolute top-32 left-[8%] w-8 h-8 text-accent/40 fill-accent/20 animate-float hidden sm:block"
-        aria-hidden="true"
-      />
-      <Sparkles
-        className="absolute top-44 right-[14%] w-7 h-7 text-gold animate-float-slow hidden sm:block"
-        aria-hidden="true"
-      />
-      <Heart
-        className="absolute bottom-24 left-[15%] w-6 h-6 text-primary/30 fill-primary/20 animate-float-slow hidden sm:block"
-        aria-hidden="true"
-      />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 lg:py-24">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Content */}
-          <div className="order-1 lg:order-1">
-            <h1
-              className="font-serif text-4xl min-[400px]:text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] text-balance mb-4 animate-fade-up"
+          <div className="order-1 lg:order-1 text-center lg:text-left">
+            <span
+              className="inline-flex items-center gap-2 bg-card text-primary px-4 py-2 rounded-full font-medium text-sm mb-6 shadow-sm border border-border animate-fade-up"
               style={{ animationDelay: "0.05s" }}
             >
-              <span className="shimmer-text animate-gradient text-glow">
-                Ateliê Cunha
-              </span>
-            </h1>
-            <p
-              className="text-xl sm:text-2xl font-serif text-foreground/90 leading-snug text-pretty mb-6 max-w-lg animate-fade-up"
+              <Sparkles className="w-4 h-4" />
+              Presentes Personalizados Exclusivos
+            </span>
+
+            <h1
+              className="font-serif text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.08] text-balance mb-5 animate-fade-up"
               style={{ animationDelay: "0.15s" }}
             >
-              Um presente feito com amor é inesquecível
-            </p>
-            <span
-              className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full font-medium text-sm mb-6 shadow-lg shadow-accent/30 animate-fade-up glow-pink"
+              Transformamos fotos e ideias em{" "}
+              <span className="shimmer-text animate-gradient">
+                presentes inesquecíveis
+              </span>
+            </h1>
+
+            <p
+              className="text-base sm:text-lg text-muted-foreground leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0 text-pretty animate-fade-up"
               style={{ animationDelay: "0.25s" }}
             >
-              <Heart className="w-4 h-4 fill-current animate-pulse-heart" />
-              Campanha Dia dos Namorados
-            </span>
-            <p
-              className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-lg text-pretty animate-fade-up"
-              style={{ animationDelay: "0.3s" }}
-            >
-              Neste Dia dos Namorados, surpreenda quem você ama com itens
-              personalizados e exclusivos. Canecas, chaveiros, garrafas e kits
-              especiais criados com todo carinho pelo Ateliê Cunha Criativa.
+              Canecas, kits, chaveiros e lembranças personalizadas criadas com
+              carinho para surpreender quem você ama.
             </p>
+
             <div
-              className="flex flex-col sm:flex-row gap-4 animate-fade-up"
-              style={{ animationDelay: "0.45s" }}
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start animate-fade-up"
+              style={{ animationDelay: "0.35s" }}
             >
               <a
                 href={whatsappLink(
-                  "Olá! Vi a campanha de Dia dos Namorados no site e quero presentear alguém especial. Pode me ajudar?"
+                  "Olá! Vim pelo site do Ateliê Cunha e quero fazer um pedido personalizado. Pode me ajudar?"
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-gradient inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-medium hover:scale-105 shadow-lg shadow-primary/30 glow-pink"
+                className="btn-whatsapp inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold shadow-lg shadow-[#25d366]/25 hover:scale-[1.03]"
               >
-                Quero presentear
-                <ArrowRight className="w-4 h-4" />
+                <WhatsAppIcon className="w-5 h-5" />
+                Fazer Pedido pelo WhatsApp
               </a>
               <Link
                 href="#produtos"
                 className="inline-flex items-center justify-center gap-2 bg-card text-foreground px-6 py-3.5 rounded-full font-medium hover:bg-secondary transition-colors border border-border"
               >
-                Ver a coleção
+                Ver Produtos
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
             <div
-              className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-8 text-sm text-muted-foreground animate-fade-up"
-              style={{ animationDelay: "0.6s" }}
+              className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-3 mt-8 animate-fade-up"
+              style={{ animationDelay: "0.5s" }}
             >
-              <span className="flex items-center gap-2">
-                <Heart className="w-4 h-4 text-accent fill-accent" />
-                Feito à mão
-              </span>
-              <span className="flex items-center gap-2">
-                <Sparkles className="w-4 h-4 text-gold" />
-                100% personalizável
-              </span>
+              {trustBadges.map((badge) => (
+                <span
+                  key={badge.label}
+                  className="flex items-center gap-2 text-sm text-foreground/70"
+                >
+                  <span className="flex items-center justify-center w-7 h-7 rounded-full bg-accent/10 text-accent">
+                    <badge.icon className="w-4 h-4" />
+                  </span>
+                  {badge.label}
+                </span>
+              ))}
             </div>
           </div>
 
-          {/* Campaign Image */}
+          {/* Hero Image */}
           <div
             className="order-2 lg:order-2 animate-fade-right"
-            style={{ animationDelay: "0.4s" }}
+            style={{ animationDelay: "0.3s" }}
           >
-            <div className="relative">
+            <div className="relative max-w-md mx-auto lg:max-w-none">
               <div
                 className="absolute -inset-4 rounded-[2rem] blur-2xl animate-glow-pulse"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(194,24,143,0.45), rgba(255,122,89,0.4))",
+                    "linear-gradient(135deg, rgba(194,24,143,0.4), rgba(255,122,89,0.35))",
                 }}
                 aria-hidden="true"
               />
-              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-primary/30 border-4 border-card">
+              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-primary/25 border-4 border-card">
                 <Image
                   src="/kit-namorados-v2.png"
-                  alt="Kit de presentes personalizado para o Dia dos Namorados do Ateliê Cunha Criativa"
+                  alt="Composição de presentes personalizados do Ateliê Cunha: caneca com foto, kit presenteável e lembranças"
                   width={640}
                   height={640}
                   className="w-full h-auto object-cover"
                   priority
                 />
               </div>
-              {/* Floating badge */}
               <div className="absolute -bottom-5 -left-3 sm:left-6 bg-card rounded-2xl shadow-xl px-5 py-3 flex items-center gap-3 animate-float">
                 <span className="flex items-center justify-center w-10 h-10 rounded-full bg-accent/15">
                   <Heart className="w-5 h-5 text-accent fill-accent" />
                 </span>
-                <div>
+                <div className="text-left">
                   <p className="text-sm font-semibold text-foreground leading-tight">
-                    Kits do Amor
+                    Feito à mão
                   </p>
                   <p className="text-xs text-muted-foreground">
-                    Edição especial
+                    100% personalizável
                   </p>
                 </div>
               </div>
