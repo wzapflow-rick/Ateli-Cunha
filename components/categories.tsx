@@ -49,14 +49,14 @@ export function Categories() {
             type="button"
             onClick={() => scrollByAmount("left")}
             aria-label="Ver categorias anteriores"
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 -ml-2 sm:-ml-4 flex items-center justify-center w-10 h-10 rounded-full bg-card border border-border text-foreground shadow-md hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 -ml-2 sm:-ml-4 hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-card border border-border text-foreground shadow-md hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
 
           <div
             ref={trackRef}
-            className="flex gap-6 sm:gap-8 overflow-x-auto scroll-smooth px-2 py-4 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            className="flex gap-6 sm:gap-8 overflow-x-auto scroll-smooth px-1 sm:px-2 py-4 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           >
             {categories.map((category) => {
               const isActive = selected === category.name;
@@ -111,11 +111,15 @@ export function Categories() {
             type="button"
             onClick={() => scrollByAmount("right")}
             aria-label="Ver mais categorias"
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 -mr-2 sm:-mr-4 flex items-center justify-center w-10 h-10 rounded-full bg-card border border-border text-foreground shadow-md hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 -mr-2 sm:-mr-4 hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-card border border-border text-foreground shadow-md hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
         </div>
+
+        <p className="sm:hidden mt-4 text-center text-xs text-muted-foreground">
+          Arraste para o lado para ver mais categorias
+        </p>
       </div>
     </section>
   );
