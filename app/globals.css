@@ -1,21 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fdf4fa;
-  --foreground: #2a0f28;
-  --primary: #9d2b8f;
+  --background: #fff8fb;
+  --foreground: #2d1b33;
+  --primary: #c2188f;
   --primary-foreground: #ffffff;
-  --secondary: #fbe4f3;
-  --secondary-foreground: #2a0f28;
-  --muted: #f4e0ee;
-  --muted-foreground: #875579;
-  --accent: #ec4899;
+  --secondary: #ffe9e1;
+  --secondary-foreground: #2d1b33;
+  --muted: #f8e6f2;
+  --muted-foreground: #8a5a7d;
+  --accent: #c2188f;
   --accent-foreground: #ffffff;
-  --gold: #fbbf24;
-  --gold-foreground: #4a2c00;
-  --border: #f2d4e8;
+  --gold: #ff7a59;
+  --gold-foreground: #ffffff;
+  --border: #f3d9ea;
   --card: #ffffff;
-  --card-foreground: #2a0f28;
+  --card-foreground: #2d1b33;
+  --whatsapp: #25d366;
+  --whatsapp-dark: #1ebe5d;
   --radius: 1rem;
 }
 
@@ -217,32 +219,82 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
 }
 
-/* Glow effects (pink + yellow) */
+/* Glow effects (pink + orange) */
 .glow-pink {
-  box-shadow: 0 0 40px -8px rgba(236, 72, 153, 0.55);
+  box-shadow: 0 0 40px -8px rgba(194, 24, 143, 0.55);
 }
 
 .glow-gold {
-  box-shadow: 0 0 40px -8px rgba(251, 191, 36, 0.55);
+  box-shadow: 0 0 40px -8px rgba(255, 122, 89, 0.55);
 }
 
 .text-glow {
-  text-shadow: 0 0 24px rgba(236, 72, 153, 0.45);
+  text-shadow: 0 0 24px rgba(194, 24, 143, 0.45);
 }
 
 .shimmer-text {
   background-image: linear-gradient(
     90deg,
-    #9d2b8f 0%,
-    #ec4899 30%,
-    #fbbf24 50%,
-    #ec4899 70%,
-    #9d2b8f 100%
+    #c2188f 0%,
+    #ff7a59 50%,
+    #c2188f 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* Strong gradient buttons (#C2188F → #FF7A59) */
+.btn-gradient {
+  background-image: linear-gradient(90deg, #c2188f 0%, #ff7a59 100%);
+  background-size: 150% auto;
+  color: #ffffff;
+  transition: background-position 0.4s ease, box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+.btn-gradient:hover {
+  background-position: right center;
+  box-shadow: 0 10px 30px -6px rgba(194, 24, 143, 0.5);
+}
+
+/* WhatsApp button (functional brand green) */
+.btn-whatsapp {
+  background-color: var(--whatsapp);
+  color: #ffffff;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.2s ease;
+}
+
+.btn-whatsapp:hover {
+  background-color: var(--whatsapp-dark);
+  box-shadow: 0 12px 30px -8px rgba(37, 211, 102, 0.6);
+}
+
+/* Soft brand gradient surfaces */
+.gradient-soft {
+  background-image: linear-gradient(
+    135deg,
+    #ffe3f3 0%,
+    #fff8fb 45%,
+    #ffe9e1 100%
+  );
+}
+
+.gradient-strong {
+  background-image: linear-gradient(135deg, #c2188f 0%, #ff7a59 100%);
+}
+
+/* Premium card hover lift */
+.card-lift {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.35s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px -18px rgba(194, 24, 143, 0.28);
 }
 
 html {

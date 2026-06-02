@@ -19,18 +19,18 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Ateliê Cunha | Presentes Personalizados para o Dia dos Namorados",
+  title: "Ateliê Cunha | Presentes Personalizados Exclusivos",
   description:
-    "Surpreenda quem você ama com presentes personalizados. Chaveiros, bonés, garrafas, agendas e kits exclusivos para o Dia dos Namorados.",
+    "Transformamos fotos e ideias em presentes inesquecíveis. Canecas, kits, chaveiros, garrafas e lembranças personalizadas. Faça seu pedido pelo WhatsApp.",
   keywords: [
-    "presentes dia dos namorados",
-    "personalização",
-    "brindes",
-    "chaveiros",
-    "bonés",
+    "presentes personalizados",
+    "canecas personalizadas",
+    "kits presenteáveis",
+    "chaveiros personalizados",
     "garrafas personalizadas",
-    "agendas",
-    "presentes",
+    "lembranças personalizadas",
+    "Ateliê Cunha",
+    "Aracaju",
   ],
 };
 
@@ -38,7 +38,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
-  themeColor: "#9d2b8f",
+  themeColor: "#c2188f",
 };
 
 export default function RootLayout({
