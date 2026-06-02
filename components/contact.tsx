@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { Send, Phone, MapPin } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 import { whatsappLink, WHATSAPP_DISPLAY } from "@/lib/whatsapp";
+import { WhatsAppIcon } from "@/components/icons";
 
 function Instagram({ className }: { className?: string }) {
   return (
@@ -24,27 +24,6 @@ function Instagram({ className }: { className?: string }) {
 }
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simular envio
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setFormData({ name: "", email: "", phone: "", message: "" });
-  };
-
   return (
     <section id="contato" className="py-16 sm:py-24 bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -56,19 +35,19 @@ export function Contact() {
             Vamos conversar?
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Tem um projeto em mente? Entre em contato conosco para solicitar um
-            orçamento ou tirar suas dúvidas.
+            Tem uma ideia em mente? Fale com a gente pelo WhatsApp e receba seu
+            orçamento personalizado em minutos.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           {/* Contact Info */}
           <div>
             <h3 className="text-xl font-semibold text-foreground mb-6">
               Informações de Contato
             </h3>
 
-            <div className="space-y-4 mb-8">
+            <div className="space-y-4">
               <a
                 href={whatsappLink()}
                 target="_blank"
@@ -123,126 +102,27 @@ export function Contact() {
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div>
-            <div className="bg-card rounded-2xl p-6 sm:p-8 border border-border shadow-sm">
-              {submitted ? (
-                <div className="text-center py-8">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Send className="w-8 h-8 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">
-                    Mensagem Enviada!
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Obrigado pelo contato. Retornaremos em breve.
-                  </p>
-                  <button
-                    onClick={() => setSubmitted(false)}
-                    className="mt-6 text-primary font-medium hover:underline"
-                  >
-                    Enviar outra mensagem
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      Nome completo
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
-                      required
-                      className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 text-base"
-                      placeholder="Seu nome"
-                    />
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-5">
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        E-mail
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        value={formData.email}
-                        onChange={(e) =>
-                          setFormData({ ...formData, email: e.target.value })
-                        }
-                        required
-                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 text-base"
-                        placeholder="seu@email.com"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="phone"
-                        className="block text-sm font-medium text-foreground mb-2"
-                      >
-                        Telefone
-                      </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        value={formData.phone}
-                        onChange={(e) =>
-                          setFormData({ ...formData, phone: e.target.value })
-                        }
-                        className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 text-base"
-                        placeholder="(00) 00000-0000"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-foreground mb-2"
-                    >
-                      Mensagem
-                    </label>
-                    <textarea
-                      id="message"
-                      value={formData.message}
-                      onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                      }
-                      required
-                      rows={4}
-                      className="w-full px-4 py-3 rounded-xl border border-border bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none text-base"
-                      placeholder="Conte-nos sobre seu projeto..."
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="btn-gradient w-full py-3.5 rounded-xl font-medium disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                  >
-                    {isSubmitting ? (
-                      "Enviando..."
-                    ) : (
-                      <>
-                        Enviar Mensagem
-                        <Send className="w-4 h-4" />
-                      </>
-                    )}
-                  </button>
-                </form>
-              )}
+          {/* WhatsApp CTA */}
+          <div className="bg-card rounded-2xl p-8 border border-border shadow-sm flex flex-col items-center justify-center text-center">
+            <div className="w-16 h-16 rounded-full bg-[var(--whatsapp)]/10 flex items-center justify-center mb-5">
+              <WhatsAppIcon className="w-8 h-8 text-[var(--whatsapp)]" />
             </div>
+            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-foreground mb-3 text-balance">
+              Faça seu pedido pelo WhatsApp
+            </h3>
+            <p className="text-muted-foreground leading-relaxed mb-8 max-w-sm text-pretty">
+              Atendimento rápido e direto. Conte sua ideia, envie suas fotos e
+              receba seu orçamento sem compromisso.
+            </p>
+            <a
+              href={whatsappLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-whatsapp inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 rounded-xl font-semibold text-base"
+            >
+              <WhatsAppIcon className="w-5 h-5" />
+              Conversar no WhatsApp
+            </a>
           </div>
         </div>
       </div>
