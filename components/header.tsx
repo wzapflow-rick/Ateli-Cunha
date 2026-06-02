@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X, Heart } from "lucide-react";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import { whatsappLink } from "@/lib/whatsapp";
 
 const navLinks = [
@@ -20,10 +21,15 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="flex items-center justify-center w-9 h-9 rounded-full bg-accent/15">
-              <Heart className="w-5 h-5 text-accent fill-accent" />
-            </span>
+          <Link href="/" className="flex items-center gap-2.5">
+            <Image
+              src="/logo-ateliecunha.png"
+              alt="Logo do Ateliê Cunha Criativa"
+              width={48}
+              height={48}
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover"
+              priority
+            />
             <span className="font-serif text-xl sm:text-2xl font-bold text-foreground">
               Ateliê Cunha
             </span>

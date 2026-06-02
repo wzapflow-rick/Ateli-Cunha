@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
 import { whatsappLink, WHATSAPP_DISPLAY } from "@/lib/whatsapp";
 
 function Instagram({ className }: { className?: string }) {
@@ -102,16 +102,19 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm text-background/70">
-                <Mail className="w-4 h-4" />
-                <span>contato@ateliecunha.com.br</span>
-              </li>
-              <li className="flex items-center gap-2 text-sm text-background/70">
                 <MapPin className="w-4 h-4" />
-                <span>São Paulo, SP</span>
+                <span>Aracaju, SE</span>
               </li>
-              <li className="flex items-center gap-2 text-sm text-background/70">
-                <Instagram className="w-4 h-4" />
-                <span>@ateliecunha</span>
+              <li>
+                <a
+                  href="https://instagram.com/ateliecunhacriativa"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-background/70 hover:text-background transition-colors"
+                >
+                  <Instagram className="w-4 h-4" />
+                  <span>@ateliecunhacriativa</span>
+                </a>
               </li>
             </ul>
           </div>

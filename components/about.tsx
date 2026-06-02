@@ -46,17 +46,18 @@ export function About() {
               Sobre Nós
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground text-balance mb-6">
-              Dedicados à criatividade e personalização
+              Somos a Paty e a Prill
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-6 text-pretty">
-              O Ateliê Cunha nasceu da paixão por criar produtos únicos que
-              contam histórias. Acreditamos que cada item personalizado carrega
-              um significado especial, seja para presentear alguém querido ou
-              fortalecer a identidade da sua marca.
+              Duas irmãs apaixonadas por transformar carinho em detalhes
+              inesquecíveis. No Ateliê Cunha Criativa, criamos presentes e
+              lembranças personalizadas para tornar cada momento ainda mais
+              especial.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed text-pretty">
-              Nossa missão é transformar suas ideias em realidade, oferecendo
-              qualidade, criatividade e um atendimento que faz a diferença.
+              Trabalhamos com muito amor, dedicação e criatividade para levar
+              encanto às festas, datas comemorativas e ocasiões únicas da vida.
+              Mais do que personalizados, criamos afeto em forma de presente.
             </p>
           </Reveal>
 
@@ -90,12 +91,7 @@ export function About() {
               delay={index * 100}
               className="text-center p-6 bg-card rounded-2xl border border-border"
             >
-              <span
-                className="font-serif text-3xl sm:text-4xl font-bold bg-clip-text text-transparent"
-                style={{
-                  backgroundImage: "linear-gradient(90deg, #9d2b8f, #ec4899)",
-                }}
-              >
+              <span className="font-serif text-3xl sm:text-4xl font-bold shimmer-text">
                 {stat.value}
               </span>
               <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>

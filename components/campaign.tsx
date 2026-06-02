@@ -76,10 +76,18 @@ export function Campaign() {
 
           <Reveal delay={150} className="order-1 lg:order-2">
             <div className="relative">
-              <div className="rounded-[2rem] overflow-hidden shadow-2xl border-4 border-primary-foreground/10">
+              <div
+                className="absolute -inset-4 rounded-[2rem] blur-2xl animate-glow-pulse"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(251,191,36,0.45), rgba(255,255,255,0.25))",
+                }}
+                aria-hidden="true"
+              />
+              <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-primary-foreground/10">
                 <Image
-                  src="/kit-namorados.png"
-                  alt="Kit de presentes personalizados do Ateliê Cunha para o Dia dos Namorados"
+                  src="/caneca-notificacao.png"
+                  alt="Caneca personalizada com foto em formato de coração - Você é minha notificação preferida"
                   width={640}
                   height={640}
                   className="w-full h-auto object-cover"

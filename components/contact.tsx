@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Send, Phone, Mail, MapPin } from "lucide-react";
+import { Send, Phone, MapPin } from "lucide-react";
 import { whatsappLink, WHATSAPP_DISPLAY } from "@/lib/whatsapp";
 
 function Instagram({ className }: { className?: string }) {
@@ -89,24 +89,7 @@ export function Contact() {
               </a>
 
               <a
-                href="mailto:contato@ateliecunha.com.br"
-                className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:shadow-md hover:border-accent/40 transition-all"
-              >
-                <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <span className="text-sm text-muted-foreground block">
-                    E-mail
-                  </span>
-                  <span className="font-medium text-foreground">
-                    contato@ateliecunha.com.br
-                  </span>
-                </div>
-              </a>
-
-              <a
-                href="https://instagram.com/ateliecunha"
+                href="https://instagram.com/ateliecunhacriativa"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:shadow-md hover:border-accent/40 transition-all"
@@ -119,7 +102,7 @@ export function Contact() {
                     Instagram
                   </span>
                   <span className="font-medium text-foreground">
-                    @ateliecunha
+                    @ateliecunhacriativa
                   </span>
                 </div>
               </a>
@@ -133,7 +116,7 @@ export function Contact() {
                     Localização
                   </span>
                   <span className="font-medium text-foreground">
-                    São Paulo, SP
+                    Aracaju, SE
                   </span>
                 </div>
               </div>

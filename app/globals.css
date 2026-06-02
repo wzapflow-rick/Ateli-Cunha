@@ -11,6 +11,8 @@
   --muted-foreground: #875579;
   --accent: #ec4899;
   --accent-foreground: #ffffff;
+  --gold: #fbbf24;
+  --gold-foreground: #4a2c00;
   --border: #f2d4e8;
   --card: #ffffff;
   --card-foreground: #2a0f28;
@@ -28,6 +30,8 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
   --color-border: var(--border);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
@@ -40,6 +44,55 @@
   --animate-pulse-heart: pulse-heart 1.8s ease-in-out infinite;
   --animate-gradient: gradient-shift 8s ease infinite;
   --animate-shimmer: shimmer 2.5s linear infinite;
+  --animate-fade-up: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-left: fade-left 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-fade-right: fade-right 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.08);
+  }
 }
 
 @keyframes float {
@@ -105,6 +158,34 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Glow effects (pink + yellow) */
+.glow-pink {
+  box-shadow: 0 0 40px -8px rgba(236, 72, 153, 0.55);
+}
+
+.glow-gold {
+  box-shadow: 0 0 40px -8px rgba(251, 191, 36, 0.55);
+}
+
+.text-glow {
+  text-shadow: 0 0 24px rgba(236, 72, 153, 0.45);
+}
+
+.shimmer-text {
+  background-image: linear-gradient(
+    90deg,
+    #9d2b8f 0%,
+    #ec4899 30%,
+    #fbbf24 50%,
+    #ec4899 70%,
+    #9d2b8f 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 html {
