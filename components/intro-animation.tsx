@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const STORAGE_KEY = "ac-intro-seen";
-const TOTAL_MS = 2300;
+const TOTAL_MS = 4900;
 
 export function IntroAnimation() {
   const [visible, setVisible] = useState(false);
