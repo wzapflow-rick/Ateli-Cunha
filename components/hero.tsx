@@ -11,7 +11,7 @@ export function Hero() {
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "linear-gradient(135deg, #fbe4f3 0%, #fdf4fa 40%, #fdf1e3 100%)",
+            "linear-gradient(135deg, #ffe3f3 0%, #fff8fb 40%, #ffe9e1 100%)",
         }}
         aria-hidden="true"
       />
@@ -83,7 +83,7 @@ export function Hero() {
                 )}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3.5 rounded-full font-medium hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/30 glow-pink"
+                className="btn-gradient inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-medium hover:scale-105 shadow-lg shadow-primary/30 glow-pink"
               >
                 Quero presentear
                 <ArrowRight className="w-4 h-4" />
@@ -121,7 +121,7 @@ export function Hero() {
                 className="absolute -inset-4 rounded-[2rem] blur-2xl animate-glow-pulse"
                 style={{
                   background:
-                    "linear-gradient(135deg, rgba(236,72,153,0.45), rgba(251,191,36,0.35))",
+                    "linear-gradient(135deg, rgba(194,24,143,0.45), rgba(255,122,89,0.4))",
                 }}
                 aria-hidden="true"
               />

@@ -67,7 +67,7 @@ export function Campaign() {
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground px-7 py-3.5 rounded-full font-medium hover:scale-105 transition-transform duration-300 shadow-lg shadow-black/10"
+              className="inline-flex items-center justify-center gap-2 bg-card text-primary px-7 py-3.5 rounded-full font-medium hover:scale-105 transition-transform duration-300 shadow-lg shadow-black/10"
             >
               <Heart className="w-4 h-4 fill-current" />
               Montar meu kit

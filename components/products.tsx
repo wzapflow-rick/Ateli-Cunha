@@ -164,7 +164,7 @@ export function Products() {
             )}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-primary text-primary-foreground px-6 py-3 rounded-full font-medium hover:bg-primary/90 hover:scale-105 transition-all duration-300 shadow-lg shadow-primary/20"
+            className="btn-gradient inline-flex items-center justify-center px-6 py-3 rounded-full font-medium hover:scale-105 shadow-lg shadow-primary/20"
           >
             Consulte outros produtos
           </a>

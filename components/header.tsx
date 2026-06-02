@@ -51,7 +51,7 @@ export function Header() {
               href={whatsappLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-primary-foreground px-5 py-2.5 rounded-full text-sm font-medium hover:bg-primary/90 transition-colors"
+              className="btn-gradient px-5 py-2.5 rounded-full text-sm font-medium"
             >
               Solicitar Orçamento
             </a>
@@ -90,7 +90,7 @@ export function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
-                className="bg-primary text-primary-foreground px-5 py-3 rounded-full text-base font-medium hover:bg-primary/90 transition-colors text-center mt-2"
+                className="btn-gradient px-5 py-3 rounded-full text-base font-medium text-center mt-2"
               >
                 Solicitar Orçamento
               </a>
