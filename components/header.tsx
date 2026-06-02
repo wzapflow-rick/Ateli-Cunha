@@ -9,6 +9,7 @@ import { whatsappLink } from "@/lib/whatsapp";
 const navLinks = [
   { href: "#inicio", label: "Início" },
   { href: "#campanha", label: "Dia dos Namorados" },
+  { href: "#categorias", label: "Categorias" },
   { href: "#produtos", label: "Produtos" },
   { href: "#sobre", label: "Sobre" },
   { href: "#contato", label: "Contato" },
