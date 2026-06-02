@@ -86,7 +86,7 @@ export function Campaign() {
               />
               <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 border-primary-foreground/10">
                 <Image
-                  src="/caneca-notificacao.png"
+                  src="/caneca-v2.png"
                   alt="Caneca personalizada com foto em formato de coração - Você é minha notificação preferida"
                   width={640}
                   height={640}

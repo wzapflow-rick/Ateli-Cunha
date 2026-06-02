@@ -123,7 +123,7 @@ export function Hero() {
               />
               <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-primary/30 border-4 border-card">
                 <Image
-                  src="/kit-coracao-real.png"
+                  src="/kit-namorados-v2.png"
                   alt="Kit de presentes personalizado para o Dia dos Namorados do Ateliê Cunha Criativa"
                   width={640}
                   height={640}
