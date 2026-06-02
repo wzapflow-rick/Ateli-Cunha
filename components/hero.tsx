@@ -52,7 +52,7 @@ export function Hero() {
               Campanha Dia dos Namorados
             </span>
             <h1
-              className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1] text-balance mb-6 animate-fade-up"
+              className="font-serif text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1] text-balance mb-6 animate-fade-up"
               style={{ animationDelay: "0.15s" }}
             >
               Um presente{" "}
@@ -93,7 +93,7 @@ export function Hero() {
             </div>
 
             <div
-              className="flex items-center gap-6 mt-8 text-sm text-muted-foreground animate-fade-up"
+              className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-8 text-sm text-muted-foreground animate-fade-up"
               style={{ animationDelay: "0.6s" }}
             >
               <span className="flex items-center gap-2">
