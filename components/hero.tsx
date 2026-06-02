@@ -43,24 +43,28 @@ export function Hero() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Content */}
-          <div className="order-2 lg:order-1">
+          <div className="order-1 lg:order-1">
+            <h1
+              className="font-serif text-4xl min-[400px]:text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] text-balance mb-4 animate-fade-up"
+              style={{ animationDelay: "0.05s" }}
+            >
+              <span className="shimmer-text animate-gradient text-glow">
+                Ateliê Cunha
+              </span>
+            </h1>
+            <p
+              className="text-xl sm:text-2xl font-serif text-foreground/90 leading-snug text-pretty mb-6 max-w-lg animate-fade-up"
+              style={{ animationDelay: "0.15s" }}
+            >
+              Um presente feito com amor é inesquecível
+            </p>
             <span
               className="inline-flex items-center gap-2 bg-accent text-accent-foreground px-4 py-2 rounded-full font-medium text-sm mb-6 shadow-lg shadow-accent/30 animate-fade-up glow-pink"
-              style={{ animationDelay: "0.05s" }}
+              style={{ animationDelay: "0.25s" }}
             >
               <Heart className="w-4 h-4 fill-current animate-pulse-heart" />
               Campanha Dia dos Namorados
             </span>
-            <h1
-              className="font-serif text-3xl min-[400px]:text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1] text-balance mb-6 animate-fade-up"
-              style={{ animationDelay: "0.15s" }}
-            >
-              Um presente{" "}
-              <span className="shimmer-text animate-gradient text-glow">
-                feito com amor
-              </span>{" "}
-              é inesquecível
-            </h1>
             <p
               className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-lg text-pretty animate-fade-up"
               style={{ animationDelay: "0.3s" }}
@@ -109,8 +113,8 @@ export function Hero() {
 
           {/* Campaign Image */}
           <div
-            className="order-1 lg:order-2 animate-fade-right"
-            style={{ animationDelay: "0.25s" }}
+            className="order-2 lg:order-2 animate-fade-right"
+            style={{ animationDelay: "0.4s" }}
           >
             <div className="relative">
               <div
