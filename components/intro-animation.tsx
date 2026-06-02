@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const STORAGE_KEY = "ac-intro-seen";
 const TOTAL_MS = 4900;
 
 export function IntroAnimation() {
@@ -15,21 +14,9 @@ export function IntroAnimation() {
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    // Allow forcing a replay for testing via ?intro=1
-    const forced =
-      new URLSearchParams(window.location.search).get("intro") === "1";
-
     if (prefersReduced) return;
 
-    let alreadySeen = false;
-    try {
-      alreadySeen = window.localStorage.getItem(STORAGE_KEY) === "1";
-    } catch {
-      alreadySeen = false;
-    }
-
-    if (alreadySeen && !forced) return;
-
+    // Plays on every page load / reload.
     setVisible(true);
 
     // Lock scroll while the intro plays.
@@ -39,11 +26,6 @@ export function IntroAnimation() {
     const timer = window.setTimeout(() => {
       setVisible(false);
       document.body.style.overflow = previousOverflow;
-      try {
-        window.localStorage.setItem(STORAGE_KEY, "1");
-      } catch {
-        /* ignore storage errors */
-      }
     }, TOTAL_MS);
 
     return () => {
