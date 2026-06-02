@@ -1,61 +1,94 @@
+"use client";
+
 import Image from "next/image";
 import { Reveal } from "@/components/reveal";
 import { whatsappLink } from "@/lib/whatsapp";
+import {
+  CATEGORIES,
+  useCategoryFilter,
+  type Category,
+} from "@/components/category-filter-context";
 
-const products = [
+type Product = {
+  id: number;
+  name: string;
+  description: string;
+  category: Category;
+  image: string;
+};
+
+const products: Product[] = [
   {
     id: 1,
-    name: "Chaveiros Personalizados",
+    name: "Caneca de Cerâmica",
     description:
-      "Chaveiros únicos para brindes corporativos ou lembranças especiais.",
-    category: "Acessórios",
-    image: "/produto-chaveiro.png",
-  },
-  {
-    id: 2,
-    name: "Bonés Bordados",
-    description:
-      "Bonés de alta qualidade com bordados personalizados para sua marca.",
-    category: "Vestuário",
-    image: "/produto-bone.png",
-  },
-  {
-    id: 3,
-    name: "Garrafas Térmicas",
-    description:
-      "Garrafas personalizadas que mantêm suas bebidas na temperatura ideal.",
-    category: "Utilidades",
-    image: "/produto-garrafa.png",
-  },
-  {
-    id: 4,
-    name: "Agendas e Cadernos",
-    description: "Agendas personalizadas para organizar seu ano com estilo.",
-    category: "Papelaria",
-    image: "/produto-agenda.png",
-  },
-  {
-    id: 5,
-    name: "Canecas Personalizadas",
-    description: "Canecas únicas para presentear ou usar no dia a dia.",
-    category: "Utilidades",
+      "Canecas de cerâmica personalizadas com fotos, nomes e frases especiais.",
+    category: "Caneca de Cerâmica",
     image: "/produto-caneca.png",
   },
   {
-    id: 6,
-    name: "Ecobags",
+    id: 2,
+    name: "Caneca Térmica",
     description:
-      "Sacolas ecológicas personalizadas com a identidade da sua marca.",
-    category: "Acessórios",
-    image: "/produto-ecobag.png",
+      "Canecas térmicas que mantêm sua bebida quentinha por mais tempo.",
+    category: "Caneca Térmica",
+    image: "/cat-caneca-termica.png",
+  },
+  {
+    id: 3,
+    name: "Boné Personalizado",
+    description:
+      "Bonés de alta qualidade com bordados e estampas personalizadas.",
+    category: "Boné",
+    image: "/produto-bone.png",
+  },
+  {
+    id: 4,
+    name: "Garrafa Personalizada",
+    description:
+      "Garrafas que mantêm suas bebidas na temperatura ideal, com a sua cara.",
+    category: "Garrafa",
+    image: "/produto-garrafa.png",
+  },
+  {
+    id: 5,
+    name: "Agenda Personalizada",
+    description: "Agendas e cadernos personalizados para organizar com estilo.",
+    category: "Agenda",
+    image: "/produto-agenda.png",
+  },
+  {
+    id: 6,
+    name: "Chaveiro Personalizado",
+    description:
+      "Chaveiros únicos para brindes, lembrancinhas ou presentes especiais.",
+    category: "Chaveiro",
+    image: "/produto-chaveiro.png",
+  },
+  {
+    id: 7,
+    name: "Copo Térmico",
+    description:
+      "Copos térmicos com canudo, personalizados para o seu dia a dia.",
+    category: "Copo Térmico",
+    image: "/cat-copo-termico.png",
   },
 ];
 
+const filters: ("Todos" | Category)[] = ["Todos", ...CATEGORIES];
+
 export function Products() {
+  const { selected, setSelected } = useCategoryFilter();
+
+  const visibleProducts =
+    selected === "Todos"
+      ? products
+      : products.filter((product) => product.category === selected);
+
   return (
-    <section id="produtos" className="py-16 sm:py-24 bg-background">
+    <section id="produtos" className="py-16 sm:py-24 bg-background scroll-mt-20">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <Reveal className="text-center mb-12 sm:mb-16">
+        <Reveal className="text-center mb-10 sm:mb-12">
           <span className="inline-block text-accent font-medium text-sm mb-4 uppercase tracking-wider">
             Nossos Produtos
           </span>
@@ -68,8 +101,29 @@ export function Products() {
           </p>
         </Reveal>
 
+        <Reveal className="flex flex-wrap items-center justify-center gap-2.5 mb-10 sm:mb-12">
+          {filters.map((filter) => {
+            const isActive = selected === filter;
+            return (
+              <button
+                key={filter}
+                type="button"
+                onClick={() => setSelected(filter)}
+                aria-pressed={isActive}
+                className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-300 ${
+                  isActive
+                    ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20"
+                    : "bg-card text-foreground border-border hover:border-accent hover:text-accent"
+                }`}
+              >
+                {filter}
+              </button>
+            );
+          })}
+        </Reveal>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((product, index) => (
+          {visibleProducts.map((product, index) => (
             <Reveal
               as="article"
               key={product.id}

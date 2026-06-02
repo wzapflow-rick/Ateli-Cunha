@@ -1,5 +1,6 @@
 import { Header } from "@/components/header";
 import { Hero } from "@/components/hero";
+import { CategoryFilterProvider } from "@/components/category-filter-context";
 import { Categories } from "@/components/categories";
 import { Campaign } from "@/components/campaign";
 import { Products } from "@/components/products";
@@ -13,9 +14,11 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <Categories />
-        <Campaign />
-        <Products />
+        <CategoryFilterProvider>
+          <Categories />
+          <Campaign />
+          <Products />
+        </CategoryFilterProvider>
         <About />
         <Contact />
       </main>

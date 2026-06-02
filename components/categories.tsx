@@ -4,9 +4,12 @@ import { useRef } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "@/components/reveal";
-import { whatsappLink } from "@/lib/whatsapp";
+import {
+  useCategoryFilter,
+  type Category,
+} from "@/components/category-filter-context";
 
-const categories = [
+const categories: { name: Category; image: string }[] = [
   { name: "Caneca de Cerâmica", image: "/cat-caneca-ceramica.png" },
   { name: "Caneca Térmica", image: "/cat-caneca-termica.png" },
   { name: "Boné", image: "/cat-bone.png" },
@@ -18,6 +21,7 @@ const categories = [
 
 export function Categories() {
   const trackRef = useRef<HTMLDivElement | null>(null);
+  const { selected, selectAndScroll } = useCategoryFilter();
 
   const scrollByAmount = (direction: "left" | "right") => {
     const track = trackRef.current;
@@ -54,36 +58,53 @@ export function Categories() {
             ref={trackRef}
             className="flex gap-6 sm:gap-8 overflow-x-auto scroll-smooth px-2 py-4 snap-x snap-mandatory [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           >
-            {categories.map((category) => (
-              <a
-                key={category.name}
-                href={whatsappLink(
-                  `Olá! Tenho interesse em personalizar: ${category.name}. Pode me ajudar?`
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex-shrink-0 snap-center flex flex-col items-center gap-4 w-32 sm:w-40"
-              >
-                <div className="relative">
-                  <span
-                    aria-hidden="true"
-                    className="absolute -inset-1.5 rounded-full bg-gradient-to-br from-accent via-primary to-gold opacity-70 blur-[2px] group-hover:opacity-100 group-hover:animate-glow-pulse transition-opacity"
-                  />
-                  <div className="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden bg-card ring-2 ring-card group-hover:scale-105 transition-transform duration-300">
-                    <Image
-                      src={category.image || "/placeholder.svg"}
-                      alt={`Categoria ${category.name}`}
-                      fill
-                      sizes="(max-width: 640px) 112px, 144px"
-                      className="object-cover"
+            {categories.map((category) => {
+              const isActive = selected === category.name;
+              return (
+                <button
+                  key={category.name}
+                  type="button"
+                  onClick={() => selectAndScroll(category.name)}
+                  aria-pressed={isActive}
+                  className="group flex-shrink-0 snap-center flex flex-col items-center gap-4 w-32 sm:w-40"
+                >
+                  <div className="relative">
+                    <span
+                      aria-hidden="true"
+                      className={`absolute -inset-1.5 rounded-full bg-gradient-to-br from-accent via-primary to-gold blur-[2px] transition-opacity ${
+                        isActive
+                          ? "opacity-100 animate-glow-pulse"
+                          : "opacity-70 group-hover:opacity-100 group-hover:animate-glow-pulse"
+                      }`}
                     />
+                    <div
+                      className={`relative w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden bg-card ring-2 transition-all duration-300 ${
+                        isActive
+                          ? "ring-accent scale-105"
+                          : "ring-card group-hover:scale-105"
+                      }`}
+                    >
+                      <Image
+                        src={category.image || "/placeholder.svg"}
+                        alt={`Categoria ${category.name}`}
+                        fill
+                        sizes="(max-width: 640px) 112px, 144px"
+                        className="object-cover"
+                      />
+                    </div>
                   </div>
-                </div>
-                <span className="text-sm sm:text-base font-semibold text-foreground text-center group-hover:text-accent transition-colors text-balance">
-                  {category.name}
-                </span>
-              </a>
-            ))}
+                  <span
+                    className={`text-sm sm:text-base font-semibold text-center transition-colors text-balance ${
+                      isActive
+                        ? "text-accent"
+                        : "text-foreground group-hover:text-accent"
+                    }`}
+                  >
+                    {category.name}
+                  </span>
+                </button>
+              );
+            })}
           </div>
 
           <button
