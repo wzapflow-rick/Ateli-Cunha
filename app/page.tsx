@@ -1,4 +1,5 @@
 import { Header } from "@/components/header";
+import { IntroAnimation } from "@/components/intro-animation";
 import { AnimatedBackground } from "@/components/animated-background";
 import { Hero } from "@/components/hero";
 import { CategoryFilterProvider } from "@/components/category-filter-context";
@@ -17,6 +18,7 @@ import { Footer } from "@/components/footer";
 export default function Home() {
   return (
     <>
+      <IntroAnimation />
       <AnimatedBackground />
       <Header />
       <main className="flex-1">
